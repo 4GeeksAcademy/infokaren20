@@ -21,31 +21,73 @@ sales_data = [
     {"day": 19, "product_a": 229, "product_b": 133, "product_c": 241},
     {"day": 20, "product_a": 210, "product_b": 57, "product_c": 324}
 ]
-
 def total_sales_by_product(data, product_key):
     """Calculates the total sales of a specific product in 30 days."""
-    pass
 # probando para cambio #
+
+    total = 0
+    for day in data:
+        total += day[product_key]
+        return total
+
+print("Total sales of product_a:", total_sales_by_product(sales_data, "product_a"))
+   
 
 def average_daily_sales(data, product_key):
     """Calculates the average daily sales of a specific product."""
     pass
+    suma = 0
+    for day in data:
+        suma += day[product_key]
+        promedio = suma/len (data)
+
+    return len(data)
+
 
 
 def best_selling_day(data):
     """Finds the day with the highest total sales."""
     pass
+total= 0
+mejor_dia = 0
+peor_dia = 0
+
+for dia in sales_data:
+
+    total = dia["product_a"] + dia["product_b"] + dia["product_c"]
+    if total > mejor_dia:
+        mejor_dia = total
+        peor_dia = dia["day"]
+    print("Day with highest total sales:", mejor_dia)
 
 
 def days_above_threshold(data, product_key, threshold):
     """Counts how many days the sales of a product exceeded a given threshold."""
     pass
 
+count = 0  
+
+for day in data:
+        
+        if day[product_key] > threshold:
+            count += 1  
+        return count
+        
+
 
 def top_product(data):
     """Determines which product had the highest total sales in 30 days."""
     pass
 
+producto = "product_a"
+umbral = 200
+dias_superan = 0
+
+for dia in sales_data:
+    if dia[producto] > umbral:
+        dias_superan += 1
+
+    return dias_superan
 
 
 # Function tests
